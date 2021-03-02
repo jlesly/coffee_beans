@@ -1,4 +1,4 @@
-class CreateBeansTable.rb < ActiveRecord::Migration[5.2]
+class CreateBeansTable < ActiveRecord::Migration[5.2]
   def change
     create_table :beans do |t|
       t.string :name
@@ -7,5 +7,6 @@ class CreateBeansTable.rb < ActiveRecord::Migration[5.2]
       t.decimal :dose
       t.decimal :extraction_volume
       t.decimal :extraction_time
+    end
   end
 end
