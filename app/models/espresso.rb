@@ -1,4 +1,4 @@
-class Beans < ActiveRecord::Base
+class Espresso < ActiveRecord::Base
     belongs_to :user
 end 
 
