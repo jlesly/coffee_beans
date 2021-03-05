@@ -59,4 +59,27 @@ class EspressoController < ApplicationController
         end 
     end 
 
+    patch '/espresso/:id' do
+        @user=Helpers.current_user(session)
+        @espresso=Espresso.find_by_id(params["id"])
+
+        if @user.id == @espresso.user_id
+            @espresso.update(params["espresso"])
+            redirect "/espresso/#{@espresso.id}"
+        else
+            redirect "/login"
+        end
+    end 
+
+    delete '/espresso/:id' do
+        @user=Helpers.current_user(session)
+        @espresso=Espresso.find_by_id(params["id"])
+
+        if @user.id == @espresso.user_id
+            @espresso.destroy
+            redirect "/espresso"
+        else
+            redirect "/login"
+        end 
+    end 
 end 
