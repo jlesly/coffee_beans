@@ -9,7 +9,7 @@ post '/signup' do
         puts "Looks like there is already an account with that email address."
         redirect "/login"
     else
-        @user=User.create(:email => params[:email], :password => params[:password])
+        @user=User.new(:email => params[:email], :password => params[:password])
 
         if user.save
             session[:user_id]= user.id
