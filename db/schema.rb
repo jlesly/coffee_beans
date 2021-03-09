@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_185039) do
+ActiveRecord::Schema.define(version: 2021_03_09_160411) do
 
   create_table "beans", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2021_02_28_185039) do
     t.decimal "dose"
     t.decimal "extraction_volume"
     t.decimal "extraction_time"
+  end
+
+  create_table "espresso", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.integer "grind_size"
+    t.decimal "dose"
+    t.decimal "extraction_volume"
+    t.decimal "extraction_time"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
