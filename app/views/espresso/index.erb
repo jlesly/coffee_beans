@@ -1,0 +1,11 @@
+<h2>Espresso</h2>
+
+<ul>
+<% @espresso.each do |espresso| %>
+    <li>
+    <a href="/espresso/<%= espresso.id %>"><%= espresso.name %> - <%= espresso.brand %> - <% espresso.grind_size %> - </a>
+    </li>
+    <% end %>
+</ul>
+
+<p><a href="/espresso/new">Create a new espresso extraction entry</a></p>
