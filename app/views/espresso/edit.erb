@@ -1,0 +1,31 @@
+<h2>Edit <% @espresso.name %><h2>
+
+<form action="/espresso/<%= @espresso.id %>" method="POST" name="form4">
+    <input type="hidden" name="_method" value="PATCH">
+
+   <label for="name">Name:</label>
+   <input type="text" id="name" name="espresso[name]" value="<%= @espresso.name %>"/> 
+
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" name="espresso[brand]" value="<%= @espresso.brand %>"/>
+
+    <label for="grind_size">Grind Size:</label>
+    <input type="number" id="grind_size" name="espresso[grind_size]" value="<%= @espresso.grind_size %>"/>
+
+    <label for="dose">Dose:</label>
+    <input type="number" id="dose" name="espresso[dose]" value="<%= @espresso.dose %>"/>
+
+    <label for="extraction_volume">Extraction Volume:</label>
+    <input type="number" id="extraction_volume" name="espresso[extraction_volume]" value="<% @espresso.extraction_volume %>"/>
+
+    <label for="extraction_time">Extraction Time:</label>
+    <input type="number" id="extraction_time" name="espresso[extraction_time" value="<% @espresso.extraction_time %>"/>
+
+    <input type="submit" value="Submit"/>
+</form>
+
+<form action="/espresso/<%= @espresso.id %>" method="POST">
+    <input type="hidden" name="_method" value="delete"/>
+    <input type="submit" value="Delete"/>
+</form>
+
