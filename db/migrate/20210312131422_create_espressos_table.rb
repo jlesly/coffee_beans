@@ -1,6 +1,6 @@
-class CreateEspressoTable < ActiveRecord::Migration[5.2]
+class CreateEspressosTable < ActiveRecord::Migration[5.2]
   def change
-    create_table :espresso do |t|
+    create_table :espressos do |t|
       t.string :name
       t.string :brand
       t.integer :grind_size

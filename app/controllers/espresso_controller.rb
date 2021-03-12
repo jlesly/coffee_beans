@@ -4,7 +4,7 @@ class EspressoController < ApplicationController
         if Helpers.is_logged_in?(session)
             @user= Helpers.current_user(session)
             if @user !=nil
-                @espresso = Espresso.where(:user_id => @user_id)
+                @espressos = Espresso.where(:user_id => @user_id)
             end
         else
         redirect "/login"

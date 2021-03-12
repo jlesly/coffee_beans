@@ -10,18 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_160411) do
+ActiveRecord::Schema.define(version: 2021_03_12_131422) do
 
-  create_table "beans", force: :cascade do |t|
-    t.string "name"
-    t.string "brand"
-    t.integer "grind_size"
-    t.decimal "dose"
-    t.decimal "extraction_volume"
-    t.decimal "extraction_time"
-  end
-
-  create_table "espresso", force: :cascade do |t|
+  create_table "espressos", force: :cascade do |t|
     t.string "name"
     t.string "brand"
     t.integer "grind_size"
