@@ -1,3 +1,7 @@
+<% if flash.has?(:error) %>
+            <h3 class="error"><%= flash[:error] %></h3>
+        <% end %>
+
 <h2>New Espresso Extraction</h2>
 
 <form action="/espresso" method="POST" name="form3">
