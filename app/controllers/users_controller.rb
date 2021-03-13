@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
-    
+
 get '/signup' do
-    erb :'users/signup'
+    if logged_in?
+        redirect "/espresso"
+    else
+        erb :'users/signup'
+    end
 end 
 
 post '/signup' do
@@ -10,20 +14,24 @@ post '/signup' do
         puts "Looks like there is already an account with that email address."
         redirect "/login"
     else
-        user=User.create(params) # change to .new
+        user=User.new(params) 
 
         if user.save
             session[:user_id]= user.id
             redirect "/"
         else
-            puts "Please enter your email address and password."
+            flash[:error] = "All fields must be filled in"
             redirect "/signup"
         end 
     end 
 end 
 
 get '/login' do 
-    erb :'users/login'
+    if logged_in?
+        redirect "/espresso"
+    else
+        erb :'users/login'
+    end
 end 
 
 post '/login' do 
@@ -32,13 +40,18 @@ post '/login' do
             session[:user_id] = @user.id
             redirect "/espresso"
         else
+            flash[:error] = "We could not find an account with that email and password"
             redirect "/signup"
         end
     end 
 end 
 
 get '/logout' do 
-    session.clear
-    redirect "/"
-end 
-       
+    if logged_in?
+        session.clear
+        flash[:notice] = "You have logged out."    
+        redirect "/login"
+    else
+        redirect "/"
+    end
+end      
