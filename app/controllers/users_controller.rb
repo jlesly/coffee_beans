@@ -23,18 +23,14 @@ post '/signup' do
 end 
 
 get '/login' do 
-    if Helpers.is_logged_in?(session)
-        redirect "/espresso"
-    else
-        erb :'users/login'
-    end
+    erb :'users/login'
 end 
 
 post '/login' do 
     @user=User.find_by(:email => params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect "/espresso"
+            redirect "/espressos"
         else
             flash[:error] = "We could not find an account with that email and password"
             redirect "/signup"
