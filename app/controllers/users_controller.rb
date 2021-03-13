@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+    
 get '/signup' do
     erb :'users/signup'
 end 
@@ -9,7 +10,7 @@ post '/signup' do
         puts "Looks like there is already an account with that email address."
         redirect "/login"
     else
-        user=User.create(params)
+        user=User.create(params) # change to .new
 
         if user.save
             session[:user_id]= user.id
