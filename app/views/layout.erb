@@ -17,6 +17,7 @@
       <% if Helpers.current_user(session) %>
         Hi, <%= Helpers.current_user(session).name %> 
         <a href= "/espresso">Espresso Entry</a>
+        <a href="/espresso/index">List of Espresso Extractions</a>
         <a href= "/logout">Log Out</a>
       <% else %>
       <a href="/login">Log In</a> or <a href="/signup">Sign Up</a>
