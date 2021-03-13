@@ -12,7 +12,19 @@
   </head>
   <body>
     <div class="wrapper">
+      <nav>
+      <span class="right">
+      <% if Helpers.current_user(session) %>
+        Hi, <%= Helpers.current_user(session).name %> 
+        <a href= "/espresso">Espresso Entry</a>
+        <a href= "/logout">Log Out</a>
+      <% else %>
+      <a href="/login">Log In</a> or <a href="/signup">Sign Up</a>
+      <% end %>
+      </span>
+      </nav>
         <%= yield %>
+
       <footer class="branding">
         <small>&copy; 2021 <strong>Coffee Beans</strong></small>
       </footer>

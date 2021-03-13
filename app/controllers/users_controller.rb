@@ -2,11 +2,7 @@ class UsersController < ApplicationController
 
 
 get '/signup' do
-    if logged_in?
-        redirect "/espresso"
-    else
-        erb :'users/signup'
-    end
+    erb :'users/signup'
 end 
 
 post '/signup' do
@@ -27,7 +23,7 @@ post '/signup' do
 end 
 
 get '/login' do 
-    if logged_in?
+    if Helpers.is_logged_in?(session)
         redirect "/espresso"
     else
         erb :'users/login'
@@ -47,11 +43,6 @@ post '/login' do
 end 
 
 get '/logout' do 
-    if logged_in?
-        session.clear
-        flash[:message] = "You have logged out."    
-        redirect "/login"
-    else
-        redirect "/"
-    end
+    session.clear
+    redirect "/"
 end      

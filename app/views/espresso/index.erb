@@ -7,7 +7,7 @@
 <ul>
 <% @espressos.each do |espresso| %>
     <li>
-    <a href="/espresso/<%= espresso.id %>"><%= espresso.name %> - <%= espresso.brand %> - <% espresso.grind_size %> - </a>
+    <a href="/espresso/<%= espresso.id %>"><%= espresso.name %> - <%= espresso.brand %> - <% espresso.grind_size %> - <%= espresso.dose %> - <%= espresso.extraction_volume %> - <%= espresso.extraction_time %></a>
     </li>
     <% end %>
 </ul>
