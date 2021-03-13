@@ -26,7 +26,7 @@ class EspressoController < ApplicationController
         
         espresso= user.espresso.create(params)
         if espresso.save
-            flash[:notice] = "Entry saved!"
+            flash[:message] = "Entry saved!"
             redirect "/espresso"
         else
             flash[:error]= "Try again to save."
@@ -68,7 +68,7 @@ class EspressoController < ApplicationController
 
         if @user.id == @espresso.user_id
             @espresso.update(params["espresso"])
-            flash[:notice] = "Succcessfully updated entry."
+            flash[:message] = "Succcessfully updated entry."
             redirect "/espresso/#{@espresso.id}"
         else
             redirect "/login"
@@ -81,7 +81,7 @@ class EspressoController < ApplicationController
 
         if @user.id == @espresso.user_id
             @espresso.destroy
-            flash[:notice] = "Entry was deleted successfully."
+            flash[:message] = "Entry was deleted successfully."
             redirect "/espresso"
         else
             redirect "/login"

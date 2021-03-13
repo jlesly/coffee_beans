@@ -49,7 +49,7 @@ end
 get '/logout' do 
     if logged_in?
         session.clear
-        flash[:notice] = "You have logged out."    
+        flash[:message] = "You have logged out."    
         redirect "/login"
     else
         redirect "/"
