@@ -7,16 +7,17 @@ class EspressoController < ApplicationController
                 @espressos = Espresso.where(:user_id => @user_id)
             end
         else
-        redirect "/login"
+            flash[:error] = "Please login to view the page."
+            redirect "/login"
         end 
-        erb :'espresso/index'
+            erb :'espresso/index'
     end 
 
     get '/espresso/new' do 
         if Helpers.is_logged_in?(session)
             erb :'espresso/new'
         else
-        redirect "/login"
+            redirect "/login"
         end 
     end 
 
@@ -25,9 +26,11 @@ class EspressoController < ApplicationController
         
         espresso= user.espresso.create(params)
         if espresso.save
-            puts "Saved"
+            flash[:notice] = "Entry saved!"
+            redirect "/espresso"
         else
-            puts "Try again to save."
+            flash[:error]= "Try again to save."
+            redirect "/espresso/new"
         end
     end 
 
@@ -65,6 +68,7 @@ class EspressoController < ApplicationController
 
         if @user.id == @espresso.user_id
             @espresso.update(params["espresso"])
+            flash[:notice] = "Succcessfully updated entry."
             redirect "/espresso/#{@espresso.id}"
         else
             redirect "/login"
@@ -77,6 +81,7 @@ class EspressoController < ApplicationController
 
         if @user.id == @espresso.user_id
             @espresso.destroy
+            flash[:notice] = "Entry was deleted successfully."
             redirect "/espresso"
         else
             redirect "/login"
