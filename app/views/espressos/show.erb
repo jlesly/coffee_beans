@@ -1,23 +1,36 @@
-<% if flash.has?(:error) %>
-    <h3 class="error"><%= flash[:error] %></h3>
-<% elsif flash.has?(:message) %>
-    <h3 class="message"><%= flash[:message] %></h3>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<h2><%= @espresso.name %></h2>
-
-<h3>Brand</h3>
-<p><%= @espresso.brand %></p>
-
-<h3>Grind Size</h3>
-<p><% @espresso.grind_size %></p>
-
-<h3>Dose</h3>
-<p><% @espresso.dose %></p>
-
-<h3>Extraction Volume</h3>
-<p><% @espresso.extraction_volume %></p>
-
-<h3>Extraction Time</h3>
-<p><% @espresso.extraction_time %></p>
+<div class="container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Grind Size</th>
+                <th>Dose</th>
+                <th>Extraction Volume</th>
+                <th>Extraction Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><% @espresso.name %></td>
+                <td><% @espresso.brand %></td>
+                <td><% @espresso.grind_size %></td>
+                <td><% @espresso.dose %></td>
+                <td><% @espresso.extraction_volume %></td>
+                <td><% @espresso.extraction_time %></td>
+            <tr>
+        </tbody>
+    </table>
+</div>
 

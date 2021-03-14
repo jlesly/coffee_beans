@@ -1,35 +1,50 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<h2>Edit <% @espresso.name %><h2>
+<div class="container">
+  <h2>Edit <% @espresso.name %><h2>
 
 <form action="/espressos/<%= @espresso.id %>" method="POST" name="form4">
-    <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="_method" value="PATCH">
 
-   <label for="name">Name:</label>
-   <input type="text" id="name" name="espresso[name]" value="<%= @espresso.name %>"/> 
-
-    <label for="brand">Brand:</label>
-    <input type="text" id="brand" name="espresso[brand]" value="<%= @espresso.brand %>"/>
-
-    <label for="grind_size">Grind Size:</label>
-    <input type="number" id="grind_size" name="espresso[grind_size]" value="<%= @espresso.grind_size %>"/>
-
-    <label for="dose">Dose:</label>
-    <input type="number" id="dose" name="espresso[dose]" value="<%= @espresso.dose %>"/>
-
-    <label for="extraction_volume">Extraction Volume:</label>
-    <input type="number" id="extraction_volume" name="espresso[extraction_volume]" value="<% @espresso.extraction_volume %>"/>
-
-    <label for="extraction_time">Extraction Time:</label>
-    <input type="number" id="extraction_time" name="espresso[extraction_time" value="<% @espresso.extraction_time %>"/>
-
-    <input type="submit" value="Submit"/>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="espresso[name]" value="<%= @espresso.name %>"/> 
+    </div>
+    <div class="form-group">
+      <label for="brand">Brand:</label>
+      <input type="text" class="form-control" id="brand" name="espresso[brand]" value="<%= @espresso.brand %>"/>
+    </div>
+    <div class="form-group">
+      <label for="grind_size">Grind Size:</label>
+      <input type="number" class="form-control" id="grind_size" name="espresso[grind_size]" value="<%= @espresso.grind_size %>"/>
+    </div>
+    <div class="form-group">
+      <label for="dose">Dose:</label>
+      <input type="number" class="form-control" id="dose" name="espresso[dose]" value="<%= @espresso.dose %>"/>
+    </div>
+    <div class="form-group">
+      <label for="extraction_volume">Extraction Volume:</label>
+      <input type="number" class="form-control" id="extraction_volume" name="espresso[extraction_volume]" value="<% @espresso.extraction_volume %>"/>
+    </div>
+    <div class="form-group">
+      <label for="extraction_time">Extraction Time:</label>
+      <input type="number" class="form-control" id="extraction_time" name="espresso[extraction_time]" value="<% @espresso.extraction_time %>"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 <form action="/espressos/<%= @espresso.id %>" method="POST">
     <input type="hidden" name="_method" value="delete"/>
-    <input type="submit" value="Delete"/>
+    <button type="delete" class="btn btn-primary">Delete</button>
 </form>
 

@@ -1,9 +1,3 @@
-<% if flash.has?(:error) %>
-        <h3 class="error"><%= flash[:error] %></h3>
-<% elsif flash.has?(:message) %>
-        <h3 class="message"><%= flash[:message] %></h3>
-        <h3><a href="/" style="text-decoration: underline;">Back to homepage</a><h3>
-<% end %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,23 +6,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
 <div class="container">
     <h2>Log in to your account</h2>
-    <form action="/login" method="POST" name="form1">
+    <form action="/login" method="POST" name="form1" >
         <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email">
+            <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email" required>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
         </div>
     
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
         
         <p>Don't have an account?<br><a href="/signup"> Sign Up</a></p>
     </form>

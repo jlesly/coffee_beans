@@ -7,7 +7,6 @@ class EspressosController < ApplicationController
                 @espressos = Espresso.where(:user_id => @user_id)
             end
         else
-            flash[:error] = "Please login to view the page."
             redirect "/login"
         end 
             erb :'espressos/index'
