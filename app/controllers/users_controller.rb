@@ -16,7 +16,11 @@ post '/signup' do
 end 
 
 get '/login' do 
-    erb :'users/login'
+    if logged_in?
+        redirect "/espressos"
+    else
+        erb :'users/login'
+    end
 end 
 
 post '/login' do 
@@ -31,6 +35,10 @@ post '/login' do
 end 
 
 get '/logout' do 
-    session.clear
-    redirect "/"
+    if logged_in?
+        session.clear
+        redirect "/login"
+    else
+        redirect "/"
+    end
 end      
