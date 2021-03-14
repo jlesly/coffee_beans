@@ -6,20 +6,13 @@ get '/signup' do
 end 
 
 post '/signup' do
-    if User.find_by(:email => params["email"])
-        puts "Looks like there is already an account with that email address."
-        redirect "/login"
+    @user = User.new(params)
+    if @user.save
+        session[:user_id]=@user.id
+        redirect "/epressos"
     else
-        user=User.new(params) 
-
-        if user.save
-            session[:user_id]= user.id
-            redirect "/"
-        else
-            flash[:error] = "All fields must be filled in"
-            redirect "/signup"
-        end 
-    end 
+        erb :'users/signup'
+    end
 end 
 
 get '/login' do 
@@ -32,7 +25,6 @@ post '/login' do
             session[:user_id] = @user.id
             redirect "/espressos"
         else
-            flash[:error] = "We could not find an account with that email and password"
             redirect "/signup"
         end
     end 

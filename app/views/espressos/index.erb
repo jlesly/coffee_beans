@@ -1,12 +1,7 @@
-
-<h2>Espresso</h2>
-
-<ul>
+<div class="list-group" "text-center">
 <% @espressos.each do |espresso| %>
-    <li>
-    <a href="/espressos/<%= espresso.id %>"><%= espresso.name %> - <%= espresso.brand %> - <% espresso.grind_size %> - <%= espresso.dose %> - <%= espresso.extraction_volume %> - <%= espresso.extraction_time %></a>
-    </li>
-    <% end %>
-</ul>
+<a href="espressos/<%= espresso.id %>" class="list-group-item"><%= espresso.name %></a>
+<% end %>
 
-<p><a href="/espressos/new">Create a new espresso extraction entry</a></p>
+<a class="btn btn-sm btn-primary" href="/espressos/new">New Extraction</a>
+</div>
