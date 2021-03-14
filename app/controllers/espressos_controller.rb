@@ -1,4 +1,4 @@
-class EspressoController < ApplicationController
+class EspressosController < ApplicationController
 
     get '/espressos' do 
         if Helpers.is_logged_in?(session)

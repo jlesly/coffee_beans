@@ -4,24 +4,34 @@
         <h3 class="message"><%= flash[:message] %></h3>
         <h3><a href="/" style="text-decoration: underline;">Back to homepage</a><h3>
 <% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
 <div class="container">
-    <h2>Log in to your account:</h2>
+    <h2>Log in to your account</h2>
     <form action="/login" method="POST" name="form1">
         <div class="form-group">
             <label for="email">Email address:</label>
             <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email">
         </div>
-        <br>
-
         <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
         </div>
-        <br>
+    
 
-        <input type="submit" value="Submit"/>
+        <button type="submit" class="btn btn-default">Submit</button>
         
         <p>Don't have an account?<br><a href="/signup"> Sign Up</a></p>
     </form>
 </div>
+</body>
+</html>

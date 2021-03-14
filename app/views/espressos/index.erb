@@ -10,9 +10,9 @@
 <ul>
 <% @espressos.each do |espresso| %>
     <li>
-    <a href="/espresso/<%= espresso.id %>"><%= espresso.name %> - <%= espresso.brand %> - <% espresso.grind_size %> - <%= espresso.dose %> - <%= espresso.extraction_volume %> - <%= espresso.extraction_time %></a>
+    <a href="/espressos/<%= espresso.id %>"><%= espresso.name %> - <%= espresso.brand %> - <% espresso.grind_size %> - <%= espresso.dose %> - <%= espresso.extraction_volume %> - <%= espresso.extraction_time %></a>
     </li>
     <% end %>
 </ul>
 
-<p><a href="/espresso/new">Create a new espresso extraction entry</a></p>
+<p><a href="/espressos/new">Create a new espresso extraction entry</a></p>

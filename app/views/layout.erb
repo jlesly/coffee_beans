@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <title>Coffee Beans</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/main.css" />
-  </head>
+
   <body>
     <div class="wrapper">
       <nav>
       <span class="right">
       <% if Helpers.current_user(session) %>
         Hi, <%= Helpers.current_user(session).name %> 
-        <a href= "/espresso">Espresso Entry</a>
-        <a href="/espresso/index">List of Espresso Extractions</a>
+        <a href= "/espressos">Espresso Entry</a>
+        <a href="/espressos/index">List of Espresso Extractions</a>
         <a href= "/logout">Log Out</a>
       <% else %>
       <a href="/login">Log In</a> or <a href="/signup">Sign Up</a>
@@ -25,15 +14,7 @@
       </span>
       </nav>
         <%= yield %>
-
-      <footer class="branding">
-        <small>&copy; 2021 <strong>Coffee Beans</strong></small>
-      </footer>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
   </body>
 </html>

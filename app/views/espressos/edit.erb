@@ -4,7 +4,7 @@
 
 <h2>Edit <% @espresso.name %><h2>
 
-<form action="/espresso/<%= @espresso.id %>" method="POST" name="form4">
+<form action="/espressos/<%= @espresso.id %>" method="POST" name="form4">
     <input type="hidden" name="_method" value="PATCH">
 
    <label for="name">Name:</label>
@@ -28,7 +28,7 @@
     <input type="submit" value="Submit"/>
 </form>
 
-<form action="/espresso/<%= @espresso.id %>" method="POST">
+<form action="/espressos/<%= @espresso.id %>" method="POST">
     <input type="hidden" name="_method" value="delete"/>
     <input type="submit" value="Delete"/>
 </form>
