@@ -1,86 +1,74 @@
 class EspressosController < ApplicationController
 
-    get '/espressos' do 
-        if Helpers.is_logged_in?(session)
-            @user= Helpers.current_user(session)
-            if @user !=nil
-                @espressos = Espresso.where(:user_id => @user_id)
-            end
-        else
-            redirect "/login"
-        end 
-            erb :'espressos/index'
-    end 
+get '/espressos' do 
+    if logged_in?
+        @espressos= current_user.espressos
+        erb :'espressos/index'
+    else
+        redirect "/signup"
+    end
+end 
 
-    get '/espressos/new' do 
-        if Helpers.is_logged_in?(session)
-            erb :'espressos/new'
-        else
-            redirect "/login"
-        end 
-    end 
+get '/espressos/new' do 
+    if logged_in?
+        erb :'espressos/new'
+    else   
+        redirect "/login"
+    end
+end 
 
-    post '/espressos' do
-        user=Helpers.current_user(session)
-        
-        espresso= user.espressos.create(params)
-        if espresso.save
-            puts "Saved successfully"
-        else
-            puts "Not saved. Try again."
-        end
-            redirect "/espressos"
-    end 
+post '/espressos' do
+    if logged_in?
+        @espresso=current_user.espressos.create(params)
+        redirect "/espressos"
+    else
+        erb :'espressos/new'
+    end
+end 
 
-    get '/espresssos/:id' do
-        if Helpers.is_logged_in?(session)
-            @user= Helpers.current_user(session)
-            @espresso= Espresso.find_by_id(params["id"])
-            if @user.id == @espresso.user_id
-                erb :'espressos/show'
-            else
-                redirect "/login"
-            end
+get '/espressos/:id' do
+    if logged_in?
+        @espresso = Espresso.find_by(:id => params[:id])
+        erb :'espressos/show'
+    else
+        redirect '/login'
+    end
+end
+
+get '/espressos/:id/edit' do
+    if logged_in?
+        @espresso= Espresso.find_by(:id => params[:id])
+        if current_user.id == @espresso.user_id
+        erb :'espressos/edit'
         else
             redirect "/login"
         end
     end
+end
 
-    get '/espressos/:id/edit' do
-        if Helpers.is_logged_in?(session)
-            @user=Helpers.current_user(session)
-            @espresso=Espresso.find_by_id(params["id"])
-            if @user.id == @espresso.user_id
-                erb :'espressos/edit'
-            else
-                redirect '/login'
-            end
+patch '/espressos/:id' do
+    if logged_in?
+        @espresso = Espresso.find_by(:id => params[:id])
+        @espresso.name = params[:name]
+        if @espresso.save
+        redirect "/espressos"
         else
-            redirect '/login'
-        end 
-    end 
-
-    patch '/espressos/:id' do
-        @user=Helpers.current_user(session)
-        @espresso=Espresso.find_by_id(params["id"])
-
-        if @user.id == @espresso.user_id
-            @espresso.update(params["espresso"])
-            redirect "/espressos/#{@espresso.id}"
-        else
-            redirect "/login"
+            redirect "/espressos/#{@espresso.id}/edit"
         end
-    end 
+    end
+end
 
-    delete '/espressos/:id' do
-        @user=Helpers.current_user(session)
-        @espresso=Espresso.find_by_id(params["id"])
 
-        if @user.id == @espresso.user_id
-            @espresso.destroy
+delete '/espressos/:id' do
+    if logged_in?
+        @espresso= Espresso.find_by(:id => params[:id])
+        if current_user.id = @espresso.user_id
+            @espresso.delete
             redirect "/espressos"
         else
             redirect "/login"
-        end 
-    end 
+        end
+    end
 end 
+
+end

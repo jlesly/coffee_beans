@@ -25,20 +25,20 @@ end
 
 post '/login' do 
     @user=User.find_by(:email => params[:email])
-        if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id
-            redirect "/espressos"
-        else
-            redirect "/signup"
-        end
+    if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect "/espressos"
+    else
+        redirect "/signup"
     end 
 end 
 
-get '/logout' do 
+get '/logout' do
     if logged_in?
-        session.clear
-        redirect "/login"
+      session.clear
+      redirect "/login"
     else
-        redirect "/"
+      redirect "/"
     end
-end      
+end
+end

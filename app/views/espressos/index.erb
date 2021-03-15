@@ -1,7 +1,41 @@
-<div class="list-group" "text-center">
-<% @espressos.each do |espresso| %>
-<a href="espressos/<%= espresso.id %>" class="list-group-item"><%= espresso.name %></a>
-<% end %>
+<!DOCTYPE html>
+<html>
+<title>Espresso Entries</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 
-<a class="btn btn-sm btn-primary" href="/espressos/new">New Extraction</a>
+<div class="w3-container w3-display-topright">
+<p><button class="w3-button w3-red"><a href="/logout">Log Out</a></button><p>
+</div>
+
+<div class="w3-container">
+  <h2>Espresso Entries</h2>
+  <table class="w3-table-all">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Grind Size</th>
+        <th>Dose (grams)</th>
+        <th>Extraction Volume (grams)</th>
+        <th>Extraction Time(secs.)</th>
+    </tr>
+    <% @espressos.each do |espresso| %>
+    <tr>
+        <td><%= espresso.id %></td>
+        <td><a href="/espressos/<%= espresso.id %>"><%= espresso.name %></a></td>
+        <td><%= espresso.brand %></td>
+        <td><%= espresso.grind_size %></td>
+        <td><%= espresso.dose %></td>
+        <td><%= espresso.extraction_volume %></td>
+        <td><%= espresso.extraction_time %></td>
+    </tr>
+    <% end %>
+    </table>
+</div>
+
+
+<div class="w3-container">
+<p><button class="w3-button w3-teal"><a href="/espressos/new">New Entry</a></button><p>
 </div>

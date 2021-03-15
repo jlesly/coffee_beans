@@ -8,29 +8,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
-
+<body> 
+ 
 <div class="container">
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th>Brand</th>
-                <th>Grind Size</th>
-                <th>Dose</th>
-                <th>Extraction Volume</th>
-                <th>Extraction Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><% @espresso.name %></td>
-                <td><% @espresso.brand %></td>
-                <td><% @espresso.grind_size %></td>
-                <td><% @espresso.dose %></td>
-                <td><% @espresso.extraction_volume %></td>
-                <td><% @espresso.extraction_time %></td>
-            <tr>
-        </tbody>
-    </table>
+  <h2><%= @espresso.name %></h2>
+  <div class="card">
+    <div class="card-body">Brand: <%= @espresso.brand %></div>
+    <div class="card-body">Grind Size: <%= @espresso.grind_size %></div>
+    <div class="card-body">Dose: <%= @espresso.dose %></div>
+    <div class="card-body">Extraction Volume: <%= @espresso.extraction_volume %></div>
+    <div class="card-body">Extraction Time: <%= @espresso.extraction_time %></div>
+  </div>
 </div>
 
+<div class="container">
+<p><button type="button" class="btn btn-outline-info"><a href="/espressos/<%= @espresso.id %>/edit">Edit</a></button><p>
+</div>
+
+</body>
+</html>

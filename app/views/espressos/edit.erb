@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Edit Entry</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,7 +11,7 @@
 <body>
 
 <div class="container">
-  <h2>Edit <% @espresso.name %><h2>
+  <h2>Edit <%= @espresso.name %><h2>
 
 <form action="/espressos/<%= @espresso.id %>" method="POST" name="form4">
   <input type="hidden" name="_method" value="PATCH">
@@ -34,17 +34,17 @@
     </div>
     <div class="form-group">
       <label for="extraction_volume">Extraction Volume:</label>
-      <input type="number" class="form-control" id="extraction_volume" name="espresso[extraction_volume]" value="<% @espresso.extraction_volume %>"/>
+      <input type="number" class="form-control" id="extraction_volume" name="espresso[extraction_volume]" value="<%= @espresso.extraction_volume %>"/>
     </div>
     <div class="form-group">
       <label for="extraction_time">Extraction Time:</label>
-      <input type="number" class="form-control" id="extraction_time" name="espresso[extraction_time]" value="<% @espresso.extraction_time %>"/>
+      <input type="number" class="form-control" id="extraction_time" name="espresso[extraction_time]" value="<%= @espresso.extraction_time %>"/>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
-
+<p>
 <form action="/espressos/<%= @espresso.id %>" method="POST">
     <input type="hidden" name="_method" value="delete"/>
-    <button type="delete" class="btn btn-primary">Delete</button>
+    <button type="delete" class="btn btn-outline-primary">Delete</button>
 </form>
 
