@@ -1,37 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
+<html>
+<title>Sign Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 
-<div class="container">
-    <h2>Sign Up</h2>
-    <form action="/signup" method="POST" name="form2">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="name" class="form-control" id="email" placeholder="Enter first and last name" name="name" required>
-        </dv>
-        <br>
+<div class="w-3-card-4">
+    <div class="w3-container w3-teal">
+        <h2>Sign Up</h2>
+    </div>
+    <form class="w3-container" action="/signup" method="POST">
+        <p>
+        <label class="w3-text-teal"><b>Name</b></label>
+        <input class="w3-input w3-border w3-sand" name="name" type="name" id="name" placeholder="Enter first and last name" style="width:40%" required></p>
+        <p>      
+        <label class="w3-text-teal"><b>Email Address</b></label>
+        <input class="w3-input w3-border w3-sand" name="email" type="email" id="email" placeholder="Enter email address" style="width:40%" required></p>
+        <p>
+        <label class="w3-text-teal"><b>Password</b></label>
+        <input class="w3-input w3-border w3-sand" name="password" type="password" id="password" placeholder="Enter password" style="width:40%" required></p>
+        <p>
+        <button type="submit" class="w3-btn w3-teal">Submit</button></p>
+        <p>Already have an account? <a href="/login">Log in</a></p>
 
-        <div class="form-group">
-            <label for="email">Email address:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email" required>
-        </div>
-        <br>
-
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
-        </div>
-        <br>
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-    <p>Already have an account? <a href="/login">Log in</a></p>
     </form>
-</div>
+    </div>
+
+</body>
+</html> 

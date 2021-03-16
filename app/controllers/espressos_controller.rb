@@ -43,6 +43,7 @@ get '/espressos/:id/edit' do
         else
             redirect "/login"
         end
+        redirect "/espressos"
     end
 end
 
