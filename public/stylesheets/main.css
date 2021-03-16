@@ -119,4 +119,11 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+  .flash {
+    background-color:  lightskyblue;
+    padding: 20px;
+    color: white;
+    margin-bottom: 15 px;
+  }
 }
