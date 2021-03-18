@@ -1,6 +1,6 @@
 # Coffee Beans Web App
 
-This is a Ruby web application that allows users to keep track of important variabes in the espresso-brewing process. Users can create an account and keep track of brand, name, grind size, dose, yield, and extraction time when brewing espresso.
+This is a Ruby web application that allows users to keep track of important variables in the espresso-brewing process. Users can create an account and keep track of brand, name, grind size, dose, yield, and extraction time when brewing espresso.
 
 <br>
 
