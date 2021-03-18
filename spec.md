@@ -20,7 +20,7 @@ Specs:
 - [x] Include user input validations
     # name, email, and password are validated
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 Confirm
 - [x] You have a large number of small Git commits
 - [x] Your commit messages are meaningful
