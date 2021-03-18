@@ -17,7 +17,6 @@
   <p>
   <table class="w3-table-all" id="myTable"
     <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Brand</th>
         <th>Grind Size</th>
@@ -27,7 +26,6 @@
     </tr>
     <% @espressos.each do |espresso| %>
     <tr>
-        <td><%= espresso.id %></td>
         <td><a href="/espressos/<%= espresso.id %>"><%= espresso.name %></a></td>
         <td><%= espresso.brand %></td>
         <td><%= espresso.grind_size %></td>
@@ -51,8 +49,8 @@ function myFunction() {
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
-  for (i = 1; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
