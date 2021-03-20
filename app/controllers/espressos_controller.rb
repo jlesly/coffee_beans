@@ -43,22 +43,18 @@ get '/espressos/:id/edit' do
         else
             redirect "/login"
         end
-        redirect "/espressos"
     end
 end
 
 patch '/espressos/:id' do
     if logged_in?
         @espresso = Espresso.find_by(:id => params[:id])
-        @espresso.name = params[:name]
-        if @espresso.save
+        @espresso.update(params["espresso"])
         redirect "/espressos"
-        else
-            redirect "/espressos/#{@espresso.id}/edit"
-        end
+    else
+        redirect "/login"    
     end
 end
-
 
 delete '/espressos/:id' do
     if logged_in?
@@ -71,5 +67,4 @@ delete '/espressos/:id' do
         end
     end
 end 
-
 end
