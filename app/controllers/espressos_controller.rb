@@ -27,11 +27,13 @@ post '/espressos' do
 end 
 
 get '/espressos/:id' do
-    if logged_in?
+    if logged_in? 
         @espresso = Espresso.find_by(:id => params[:id])
+        if current_user.id == @espresso.user_id
         erb :'espressos/show'
-    else
+        else
         redirect '/login'
+        end
     end
 end
 
